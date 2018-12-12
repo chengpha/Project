@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stopwatch</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+var timer;
+var milliseconds = 0;
+function watch() {
+    var m = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    var s = Math.floor((milliseconds % (1000 * 60)) / 1000);
+    var ms = Math.floor(milliseconds % 1000);
+	milliseconds = milliseconds + 15;
+   
+    if (m < 10) {
+	m = "0" + m;
+	}
+	if(s < 10) {
+	s = "0" + s;
+	}
+	document.getElementById("display").innerHTML = m + ":" + s + ":" + ms;
+}
+
+$(document).ready(function(){
+    $("#startWatch").click(function(){
+    	timer = setInterval(watch, 15);
+        });
+	$("#stopWatch").click(function(){
+		clearInterval(timer);
+		});
+	$("#clearWatch").click(function(){
+		milliseconds = 0;
+		document.getElementById("display").innerHTML = "00" + ":" + "00" + ":" + "000";
+		});
+});
+</script>
+
+<style>
+
+</style>
+</head>
+<body>
+<h1 align="center" >
+Stopwatch
+</h1>
+<div><a href="Index.html">Return Home</a></div>
+<p align="center" id="display"></p>
+<div align="center">
+<input align="right" id="startWatch" type="button" value="Start">
+<input id="stopWatch" type="button" value="Stop">
+<input id="clearWatch" type="button" value="Clear">
+</div>
+</body>
+</html>

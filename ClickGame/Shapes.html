@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Play Shapes!</title>
+<style>
+
+#div1 {
+	display: none;
+	background:red;
+	height:100px;
+    width:100px;
+    position:absolute;  
+	margin-top: 300px;
+	left: 700px;  
+}
+
+#div2 { 
+	display: none;
+	background:silver;
+	height:100px;
+    width:150px;
+    position:absolute;  
+	margin-top: 300px;
+	left: 400px;  
+}
+ 
+#div3 {
+	display: none;
+	background:blue;
+	height:75px;
+    width:75px;
+	border-radius: 50%;
+    position:absolute;
+	margin-top: 300px;
+	left: 600px;    
+} 
+
+#div4 {
+	display: none;
+	background:green;
+	height:120px;
+    width:100px;
+    position:absolute;
+	margin-top: 100px;
+	left: 200px;
+} 
+
+#div5 {
+	display: none;
+	background:brown;
+	height:125px;
+    width:125px;
+    position:absolute;
+	margin-top: 100px;
+	left: 700px;  
+} 
+
+#div6 {
+	display: none;
+	background:purple;
+	height:120px;
+    width:100px;
+    position:absolute;
+	margin-top: 100px;
+	left: 500px;
+} 
+
+#div7 {
+	display: none;
+	background:yellow;
+	height:75px;
+    width:75px;
+    position:absolute;
+	margin-top: 100px;
+	left: 100px; 
+} 
+
+#div8 {
+	display: none;
+	background:orange;
+	height:125px;
+    width:125px;
+	border-radius: 50%;
+    position:absolute;
+	margin-top: 300px;
+	left: 200px;
+} 
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script> 
+var timer;
+var milliseconds = 0;
+var counter = 8;
+function watch() {
+    var m = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    var s = Math.floor((milliseconds % (1000 * 60)) / 1000);
+    var ms = Math.floor(milliseconds % 1000);
+	milliseconds = milliseconds + 15;
+   
+    if (m < 10) {
+	m = '0' + m;
+	}
+	if(s < 10) {
+	s = '0' + s;
+	}
+	document.getElementById("display").innerHTML = m + ':' + s + ':' + ms;
+}
+$(document).ready(function(){
+	$('#startGame').click(function(){
+		timer = setInterval(watch, 15);
+		$("div").show();
+        });
+    $('div').click(function(){
+        $(this).hide();
+		counter--; 
+		if(counter === 0) {
+		clearInterval(timer);
+		alert('You win!');
+		}
+	$("#clearWatch").click(function(){
+		milliseconds = 0;
+		counter = 8;
+		document.getElementById("display").innerHTML = "00" + ":" + "00" + ":" + "000";
+		});
+    });
+});
+
+</script> 
+</head>
+<body id="body">
+
+<h1 align="center">Welcome to Shapes!</h1>
+<div><a href="../Index.html">Return Home</a></div>
+<h3>To win, click on all the shapes</h3>
+
+<p>Click start to start the game</p>
+<p id="display"></p>
+<input id="startGame" type="button" value="Start" align="center">
+<input id="clearWatch" type="button" value="Reset" align="center">
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<div id="div5"></div>
+<div id="div6"></div>
+<div id="div7"></div>
+<div id="div8"></div>
+
+
+
+
+
+</body>
+</html>

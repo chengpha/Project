@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculate area of shapes</title>
+<style>
+#body {
+	background-color:black;
+	color:white;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+function squareArea() {
+	var reg = /-[0-9]+/g;
+	var strReg = /[a-zA-Z]+/g;
+	var squareValue = +document.getElementById('squareInputValue').value;
+	
+	var checkInputValue = reg.test(squareValue);
+	var checkStringInput = strReg.test(squareValue);
+	if(checkInputValue == true || checkStringInput == true) {
+	alert("Invalid input. Please enter a positive integer.");
+	}
+	else {
+	var squareArea = squareValue * squareValue;
+	var squareOutput = document.getElementById('totalSquareOutput').value = squareArea;
+	}
+}
+
+function rectangleArea() {
+	var reg = /-[0-9]+/g;
+	var strReg = /[a-zA-Z]+/g;
+	var rectangleLength = +document.getElementById('rectangleLengthValue').value;
+	var rectangleWidth = +document.getElementById('rectangleWidthValue').value;	
+	
+	var checkWidthInput = reg.test(rectangleWidth);
+	var checkLengthInput  = reg.test(rectangleLength);
+	var checkWidthString = strReg.test(rectangleWidth);
+	var checkLengthString = strReg.test(rectangleLength);
+	
+	if(checkWidthInput == true || checkLengthInput == true) {
+	alert("Invalid input. Please enter a positive integer.");
+	}	
+	else if(checkWidthString == true || checkLengthString) {
+	alert("Invalid input. Please enter a positive integer.");
+	}
+	else {
+	var rectangleArea = rectangleLength * rectangleWidth;
+	var rectangleOutput = document.getElementById('totalRectangleOutput').value = rectangleArea;
+	}
+
+
+	
+}
+
+function circleArea() {
+	var reg = /-[0-9]+/g;
+	var strReg = /[a-zA-Z]+/g;
+	var circleRadius = +document.getElementById('circleInputValue').value;
+	
+	var checkRadiusInput = reg.test(circleRadius);
+	var checkRadiusString = strReg.test(circleRadius);
+	if(checkRadiusInput == true || checkRadiusString ==true) {
+	alert("Invalid input. Please enter a positive integer.");
+	}
+	else {
+	var circleArea = circleRadius * circleRadius * 3.14;
+	var circleOutput = document.getElementById('totalCircleOutput').value = circleArea;	
+	}
+}
+
+$(document).ready(function() {
+	$('#sqBtn').click(squareArea);
+	$('#rectBtn').click(rectangleArea);
+	$('#circleBtn').click(circleArea);
+});
+</script>
+</head>
+<body id="body">
+<h2>Math formulas to calculate the area of a square, rectangle, and circle</h2>
+<div><a href="Index.html">Return Home</a></div>
+<br>
+Input length of a square side and get the area of a square <br>
+<input id="squareInputValue" type="text">
+<br>
+Area of Square <br>
+<input id="totalSquareOutput" type="text" value="0.000" readonly>
+<br>
+<input id="sqBtn" type="button" value="Calculate">
+<br>
+<br>
+Input length and width of rectangle to get area of rectangle
+<br>
+Length <br>
+<input id="rectangleLengthValue" type="text">
+<br>
+Width <br>
+<input id="rectangleWidthValue" type="text">
+<br>
+Area of rectangle<br>
+<input id="totalRectangleOutput" type="text" value="0.000" readonly>
+<br>
+<input id="rectBtn" type="button" value="Calculate">
+<br>
+<br>
+Input radius of circle to get area of a circle <br>
+
+<input id="circleInputValue" type="text">
+<br>
+
+Area of circle <br>
+<input id="totalCircleOutput" type="text" value="0.000" readonly>
+<br>
+<input id="circleBtn" type="button" value="Calculate" >
+<br>
+
+
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Subscribe Here</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+var regexnum = /[0-9]+/g;
+var regexEmail = /[@a-zA-Z0-9]+/g;
+
+function testName() {
+	var nameValue = document.getElementById('nameValue').value;
+	var lastNameValue = document.getElementById('lastNameValue').value;
+	var emailValue = document.getElementById('emailValue').value;
+	
+	var checkNameValue = regexnum.test(nameValue);
+	var checkLastNameValue = regexnum.test(lastNameValue);
+	var checkEmailValue = regexEmail.test(emailValue);
+	
+	if(checkNameValue === true || checkLastNameValue === true || checkEmailValue === false) {
+	alert('Invalid input. Try again');
+	}
+	else {
+	alert('Thank you for subscribing, ' + nameValue);
+	}
+}
+$(document).ready(function() {
+	$('#submitButton').click(testName);
+	});
+</script>
+<style>
+body {
+	background-color:LightBlue;
+}
+</style>
+<body>
+	<h1>
+		Subscribe to my online newsletter!
+	</h1>
+	<div><a href="Index.html">Return Home</a></div>
+	<p>
+	Newsletters are sent out once a month.
+	</p>
+		<form>
+		<fieldset>
+			<legend>Personal Information</legend>
+			Name: <input id="nameValue" type="text" placeholder="First"><input id="lastNameValue" type="lastname" placeholder="Last"><br>
+			Email Address: <input id="emailValue" type="text"placeholder="Email Address"><br>
+			Are you a premium member?
+			<input type="radio" name="choice" value="yes">Yes
+			<input type="radio" name="choice" value="no" checked>No
+		</fieldset>
+		</form>
+	<input id="submitButton" type="button" value="Subscribe">
+	
+
+</body>
+
+</html> 

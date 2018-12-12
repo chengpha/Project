@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Vote for the best moment!</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+<script>
+
+function voteFor2012() {
+alert('Thank you for voting for 2012. Your vote has been recorded.');
+}
+function voteFor2013() {
+alert('Thank you for voting for 2013. Your vote has been recorded.');
+}
+function voteFor2014() {
+alert('Thank you for voting for 2014. Your vote has been recorded.');
+}
+$(document).ready(function() {
+	$('#2012btn').click(voteFor2012);
+	$('#2013btn').click(voteFor2013);
+	$('#2014btn').click(voteFor2014);
+});
+</script>
+
+<style>
+#body {
+	background-color:silver;	
+}
+</style>
+</head>
+
+<body id="body">
+
+	<h1 align="center">
+		Vote for the best year!
+	</h1>
+	<div><a href="Index.html">Return Home</a></div>
+	
+	<br>
+	<p>
+		<div>
+			<h2>2012</h2>
+			Minneapolis Half Marathon<br>
+			<img src="halfmarathon.png" alt="Loading" width="300" size="300"></img> 
+		</div>
+	</p>
+	<input id="2012btn" type="button" value="Vote">
+	<p>
+		<div>
+			<h2>2013</h2>
+			Warrior Dash & Medtronic 5k<br>
+			<img src="warriordash.png" alt="Loading" width="300" size="300"></img> 
+			<img src="chengandel.png" alt="Loading" width="300" size="400"></img> 
+		</div>
+		
+	</p>
+	<input id="2013btn" type="button" value="Vote">
+	<p>
+		<div>
+			<h2>2014</h2>
+			Medtronic 5k, 10k, and 10mile<br>
+			<img src="looney.png" alt="Loading" width="300" size="300"></img>
+			<img src="tenmile.png" alt="Loading" width="300" size="300"></img> 
+		</div>
+		
+	</p>
+	<input id="2014btn" type="button" value="Vote">
+	
+
+</body>
+
+</html> 
